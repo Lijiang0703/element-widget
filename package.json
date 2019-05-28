@@ -1,0 +1,22 @@
+{
+  "name": "element-widget",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "elementUI"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "element-ui": "^2.8.2",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "babel-plugin-component": "^1.1.1",
+    "docz": "^1.2.0"
+  }
+}
