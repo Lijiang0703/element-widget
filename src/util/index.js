@@ -2,12 +2,19 @@
  * 用来处理入口和出口数据和事件
  * 
  */
-import Index from "../index"
+import Vue from "../app"
+
 class widgetUtil {
     constructor({el, data, events}){
         this.el = el;
         this.data = data;
         this.events = events;
+    }
+    init(){    
+        const app = new Vue({
+            el: this.el,
+            template: tpl
+        })
     }
     getJSON(){
         
