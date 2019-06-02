@@ -1,16 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const HtmlWebpackPlugin= require('html-webpack-plugin');
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
-        index: path.resolve(__dirname,'../src/util/index'),
-        // test: path.resolve(__dirname,'../test/index')
+        index: path.resolve(__dirname,'../src/util/index')
     },
     output: {
-        filename: "index.bundle.js",
+        filename: "elementWidget.js",
         path: path.resolve(__dirname,'../dist'),
         library: "elementWidget",
         libraryTarget: "umd",
@@ -39,25 +37,10 @@ module.exports = {
             }
         ]
     },
-    // optimization:{
-    //     splitChunks:{
-    //         chunks: 'test'
-    //     }
-    // },
     resolve:{
         extensions: ['.js','.vue']
     },
     plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            // chunks: ['index','test'],
-            template: path.resolve(__dirname,'../test/index.html'),
-            hash: true,
-        })
-    ],
-    devServer: {
-        contentBase: path.join(__dirname,'dist'),
-        compress: true,
-        port: 9090
-    }
+        new VueLoaderPlugin()
+    ]
 }

@@ -1,7 +1,6 @@
 <template>
     <div>
-        <text>hello</text>
-        <Slider></Slider>
+        
     </div>
 </template>
 
@@ -10,6 +9,11 @@ import Slider from './components/slider'
 export default {
     data(){
         return {
+            elementJson: [
+                {
+                    
+                }
+            ]
         }
     },
     components: {

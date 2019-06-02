@@ -3,18 +3,20 @@
  * 
  */
 import Vue from "../app"
+import Main from "../main"
 
 class widgetUtil {
     constructor({el, data, events}){
         this.el = el;
-        this.data = data;
-        this.events = events;
+        this.data = data || {};
+        this.events = events || {};
+        return this.init();
     }
     init(){    
         const app = new Vue({
-            el: this.el,
-            template: tpl
-        })
+            render: h=>h(Main)
+        }).$mount(this.el)
+        return app.$el;
     }
     getJSON(){
         
