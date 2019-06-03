@@ -2,21 +2,40 @@
  * 用来处理入口和出口数据和事件
  * 
  */
-import Vue from "../app"
-import Main from "../main"
+import Vue from "../app";
+import Main from "../main";
+import jsonConvert from "./jsonConvert";
 
 class widgetUtil {
     constructor({el, data, events}){
         this.el = el;
-        this.data = data || {};
+        this.data = data || [
+            {
+                type: 'slider',
+                value: 1
+            }
+        ];
         this.events = events || {};
         return this.init();
     }
-    init(){    
-        const app = new Vue({
-            render: h=>h(Main)
-        }).$mount(this.el)
-        return app.$el;
+    init(){
+        const json = jsonConvert(this.data);
+        
+        this.app = new Vue({
+            render: h=>h(Main,{
+                props:{
+                    elementJson: json
+                },
+                on: {
+                    change: function({val, oldval}){
+                        console.log(val)
+                    }
+                }
+            }),
+            mounted: this.onMounted
+        }).$mount(this.el);
+
+        return this;
     }
     getJSON(){
         
@@ -25,7 +44,7 @@ class widgetUtil {
      * 实例创建
      */
     onMounted(){
-
+        console.log('mounted')
     }
     /**
      * widget change事件
@@ -35,9 +54,15 @@ class widgetUtil {
         onWidgetChange && onWidgetChange();
     }
     /**
+     * 触发销毁
+     */
+    destroy(){
+        this.app.destroy();
+    }
+    /**
      * 实例销毁
      */
-    onDestroy(){
+    onDestroyed(){
 
     }
 }

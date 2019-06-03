@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(item, index) in elementJson" 
-            v-bind:is="item.type" 
+            v-bind:is="item.name" 
             v-bind="item.data"
             @change="onChange"
             :key="index"
@@ -10,23 +10,41 @@
 </template>
 
 <script>
+import Button from "./components/base/button";
+import Colorpicker from "./components/base/colorpicker";
+import CSwitch from "./components/base/switch";
+import Divider from "./components/base/divider";
+import Input from "./components/base/input";
 import Overlay from "./components/custom/overlay";
 import Slider from "./components/base/slider";
-import CSwitch from "./components/base/switch";
 
 export default {
-    data(){
-        return {
-            elementJson: []
+    props:{
+        elementJson:{
+            type: Array,
+            default: ()=>{
+                return [];
+            }
         }
     },
+    data(){
+        return {
+        }
+    },
+    mounted(){
+        console.log(this.elementJson)
+    },
     methods:{
-        onChange(){
-
+        onChange(val, oldVal){
+            this.$emit('change',{val,oldVal})
         }
     },
     components: {
+        Button,
+        Colorpicker,
         CSwitch,
+        Divider,
+        Input,
         Overlay,
         Slider
     }
