@@ -16,6 +16,7 @@ import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
 import Input from "./components/base/input";
 import Overlay from "./components/custom/overlay";
+import Select from "./components/base/select";
 import Slider from "./components/base/slider";
 
 export default {
@@ -46,6 +47,7 @@ export default {
         Divider,
         Input,
         Overlay,
+        Select,
         Slider
     }
 }

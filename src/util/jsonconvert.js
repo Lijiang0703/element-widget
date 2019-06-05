@@ -30,6 +30,7 @@ const CONSTANT_TYPE_NAMES = [
     ["input","Input"],
     ["textarea","Input",{text: 'textarea', autoSize: {minRows:2, maxRows: 4}}],
     ["slider","Slider"],
+    ["select","select"],
     ["more","Button"],
     ["split","Divider"],
     ["colorpicker","ColorPicker"],
