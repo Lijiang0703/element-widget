@@ -28,6 +28,7 @@ const CONSTANT_TYPE_NAMES = [
     ["switch","CSwitch"],
     ["spinbox","Slider",{showInput: true}],
     ["input","Input"],
+    ["link","Link"],
     ["textarea","Input",{text: 'textarea', autoSize: {minRows:2, maxRows: 4}}],
     ["slider","Slider"],
     ["select","select"],
@@ -35,5 +36,5 @@ const CONSTANT_TYPE_NAMES = [
     ["split","Divider"],
     ["colorpicker","ColorPicker"],
     ["overlay","Overlay"],
-    ["image","multiImage"]
+    ["image","CImage"]
 ]

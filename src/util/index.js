@@ -13,6 +13,13 @@ class widgetUtil {
             {
                 type: 'slider',
                 value: 1
+            },
+            {
+                type: 'image',
+                value: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+            },
+            {
+                type: 'link',
             }
         ];
         this.events = events || {};
@@ -29,6 +36,9 @@ class widgetUtil {
                 on: {
                     change: function({val, oldval}){
                         console.log(val)
+                    },
+                    uploadImage: function(){
+                        console.log('uploadImage')
                     }
                 }
             }),

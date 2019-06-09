@@ -54,6 +54,7 @@ module.exports = {
             // chunks: ['index','test'],
             template: path.resolve(__dirname,'../test/index.html'),
             hash: true,
+            inject:  'head'
         })
     ],
     devServer: {

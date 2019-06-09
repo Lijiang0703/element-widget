@@ -1,0 +1,71 @@
+<template>
+    <div>
+        <el-row>
+            <i class="el-icon-picture"></i>
+            <Label :title="title"></Label>
+        </el-row>
+        <el-row class="image-wrap">
+            <el-image
+                :src="c_value"
+                :fit="type"
+            >
+                <div slot="placeholder" class="image-holder-slot"></div>
+                <div slot="error" class="image-error-slot"></div>
+            </el-image>
+            <i class="el-icon-upload2" @click="onUpload"></i>
+            <i class="el-icon-delete-solid" @click="onDelete"></i>
+        </el-row>
+    </div>
+</template>
+
+<script>
+import Label from '../base/label';
+
+export default {
+    props:{
+        value:{
+            type: String,
+            required: true
+        },
+        title:{
+            type: String,
+            default: '图片'
+        },
+        type:{
+            type: String,
+            default: 'contain'
+        }
+    },
+    data(){
+        return {
+            c_value: this.value
+        }
+    },
+    methods:{
+        onUpload:function(){
+            this.$emit('uploadImage')
+        },
+        onDelete:function(){
+            this.c_value = "";
+            this.$emit('change', '', this.c_value);
+        }
+    },
+    components: {
+        Label
+    }
+}
+</script>
+
+<style>
+.image-wrap{
+    border: 1px solid rgb(138, 138, 138);
+    color: rgb(212, 212, 212);
+    min-height: 20px;
+}
+.image-holder-slot{
+    background-color: rgb(87, 87, 87);
+}
+.image-error-slot{
+    background-color: rgb(87, 87, 87);
+}
+</style>
