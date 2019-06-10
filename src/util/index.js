@@ -9,19 +9,7 @@ import jsonConvert from "./jsonConvert";
 class widgetUtil {
     constructor({el, data, events}){
         this.el = el;
-        this.data = data || [
-            {
-                type: 'slider',
-                value: 1
-            },
-            {
-                type: 'image',
-                value: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
-            },
-            {
-                type: 'link',
-            }
-        ];
+        this.data = data || [];
         this.events = events || {};
         return this.init();
     }
@@ -29,19 +17,21 @@ class widgetUtil {
         const json = jsonConvert(this.data);
         
         this.app = new Vue({
-            render: h=>h(Main,{
-                props:{
-                    elementJson: json
-                },
-                on: {
-                    change: function({val, oldval}){
-                        console.log(val)
+            render: function(h){
+                return h(Main,{
+                    props:{
+                        elementJson: json
                     },
-                    uploadImage: function(){
-                        console.log('uploadImage')
+                    on: {
+                        change: function({val, oldval}){
+                            console.log(val)
+                        },
+                        uploadImage: (callback)=>{
+                            this.$emit('uploadImage',callback)
+                        }
                     }
-                }
-            }),
+                })
+            },
             mounted: this.onMounted
         }).$mount(this.el);
 

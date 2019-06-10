@@ -7,7 +7,6 @@
             @uploadImage="onUploadImage"
             :key="index"
         ></div>
-        <Button @click="updateImage"></Button>
     </div>
 </template>
 
@@ -43,11 +42,8 @@ export default {
         onChange(val, oldVal){
             this.$emit('change',{val,oldVal});
         },
-        onUploadImage(){
-            this.$emit('uploadImage');
-        },
-        updateImage(){
-
+        onUploadImage(callback){
+            this.$emit('uploadImage',callback);
         }
     },
     components: {

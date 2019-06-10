@@ -43,11 +43,21 @@ export default {
     },
     methods:{
         onUpload:function(){
-            this.$emit('uploadImage')
+            this.$emit('uploadImage',this.uploadCallback);
         },
         onDelete:function(){
             this.c_value = "";
             this.$emit('change', '', this.c_value);
+        },
+        uploadCallback:function(val){
+            if(val) {
+                this.c_value = val;
+            }
+        }
+    },
+    watch:{
+        c_value:function(val){
+            console.log(val)
         }
     },
     components: {
