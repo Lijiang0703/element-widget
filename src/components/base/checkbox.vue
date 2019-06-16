@@ -1,25 +1,18 @@
 <template>
     <el-row>
-        <Label
-            :title="title"
-        ></Label>
-        <el-input
-            v-model.lazy="c_value"
-        ></el-input>
+        <el-checkbox
+            class="el-form-title"
+            v-model="c_value"
+        >{{title}}</el-checkbox>
     </el-row>
 </template>
 
 <script>
-import Label from './label';
 export default {
     props:{
         value:{
-            type:  [Number,String],
-            default: ''
-        },
-        type:{
-            type: String,
-            default: 'text'
+            type:  Boolean,
+            default: false
         },
         title:{
             type: String
@@ -34,9 +27,6 @@ export default {
         c_value: function(val, oldVal){
             this.$emit('change', val, oldVal);
         }
-    },
-    components: {
-        Label
     }
 }
 </script>

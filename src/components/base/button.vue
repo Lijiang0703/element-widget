@@ -25,7 +25,8 @@ export default {
             default: false
         },
         title:{
-            type: String
+            type: String,
+            default: "Button"
         }
     },
     data(){

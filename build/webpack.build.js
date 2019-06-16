@@ -5,11 +5,11 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
     mode: "production",
     entry: {
-        index: path.resolve(__dirname,'../src/util/index')
+        index: path.resolve(__dirname,'../package/index')
     },
     output: {
-        filename: "elementWidget.js",
-        path: path.resolve(__dirname,'../dist'),
+        filename: "element-widget.js",
+        path: path.resolve(__dirname,'../lib'),
         library: "elementWidget",
         libraryTarget: "umd",
         libraryExport: "default"
@@ -39,6 +39,10 @@ module.exports = {
     },
     resolve:{
         extensions: ['.js','.vue']
+    },
+    externals: {
+        vue: 'Vue',
+        element: 'element-ui'
     },
     plugins: [
         new VueLoaderPlugin()

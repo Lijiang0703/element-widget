@@ -4,6 +4,7 @@
             :title="title"
         ></Label>
         <el-slider
+            class="c-slider"
             v-model="c_value"
             :min="min"
             :max="max"
@@ -21,8 +22,7 @@ export default {
     props:{
         value:{
             type:  Number,
-            default: 1,
-            required: true
+            default: 0
         },
         min:{
             type: Number,
@@ -70,5 +70,29 @@ export default {
 </script>
 
 <style>
-
+.c-slider .el-slider__runway.show-input{
+    margin-right: 110px;
+}
+.c-slider .el-slider__input{
+    width: 100px;
+}
+.c-slider input{
+    border: 2px solid rgb(110, 110, 110);
+    border-radius: 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px inset;
+    color: #fff;
+    padding: 0px 25px 0px 7px;
+    background-color: rgb(96, 96, 96);
+    height: 25px;
+    line-height: 25px;
+    margin: 0px;
+}
+.c-slider .el-input-number__decrease{
+    background: transparent;
+    border-color: rgb(110, 110, 110);
+}
+.c-slider .el-input-number__increase{
+    background: transparent;
+    border-color: rgb(110, 110, 110);
+}
 </style>

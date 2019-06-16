@@ -7,7 +7,12 @@
             v-model="c_value"
             @change="onChange"
         >
-            <el-option></el-option>
+            <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.name || item.title || item.label"
+                :value="item.value"
+            ></el-option>
         </el-select>
     </el-row>
 </template>
@@ -25,7 +30,9 @@ export default {
         },
         options:{
             type: Array,
-            default: [],
+            default: function(){
+                return []
+            },
             required: true
         }
     },
@@ -34,7 +41,7 @@ export default {
             c_value: this.value
         }
     },
-    method:{
+    methods:{
         onChange:function(){
 
         }

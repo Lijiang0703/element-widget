@@ -7,6 +7,7 @@
             v-model="c_value"
             :show-alpha="showAlpha"
             :predefine="predefine"
+            :size="size"
             @change="onChange"
             @active-change="onActiveChange"
         ></el-color-picker>
@@ -31,7 +32,13 @@ export default {
         },
         predefine:{
             type: Array,
-            default: []
+            default: function(){
+                return []
+            }
+        },
+        size:{
+            type: String,
+            default: "mini"
         },
         title:{
             type: String,

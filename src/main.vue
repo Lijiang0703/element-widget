@@ -3,8 +3,12 @@
         <div v-for="(item, index) in elementJson" 
             v-bind:is="item.name" 
             v-bind="item.data"
-            @change="onChange"
+            @change="onChange(...arguments,index)"
             @uploadImage="onUploadImage"
+            @getPages="onGetPage"
+            @getContentType="onGetContentType"
+            @getCategory="onGetCategory"
+            @getSections="onGetSection"
             :key="index"
         ></div>
     </div>
@@ -39,11 +43,23 @@ export default {
         console.log(this.elementJson)
     },
     methods:{
-        onChange(val, oldVal){
-            this.$emit('change',{val,oldVal});
+        onChange(val, oldVal, index){
+            this.$emit('change',val,oldVal,index);
         },
         onUploadImage(callback){
             this.$emit('uploadImage',callback);
+        },
+        onGetPage(callback){
+            this.$emit('getPages',callback);
+        },
+        onGetSection(callback){
+            this.$emit('getSections',callback);
+        },
+        onGetContentType(callback){
+            this.$emit('getContentType',callback);
+        },
+        onGetCategory(callback){
+            this.$emit('getCategory',callback);
         }
     },
     components: {

@@ -1,0 +1,98 @@
+*{
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.el-form-title{
+    color: #dddee2;
+    display: inline-block;
+    max-width: 100%;
+    flex: 1;
+}
+.el-row{
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+.icon-title{
+    color:#ffd600;
+    margin-right: 6px;
+    margin-left: 2px;
+}
+.row-title{
+    margin: 8px 0;
+}
+/* colorpicker样式 */
+.el-color-picker__trigger{
+    border: none;
+}
+.el-color-picker__color{
+    border: none;
+}
+.el-color-picker__color-inner{
+    border-radius: 50%;
+}
+.el-icon-arrow-down{
+    display: none;
+}
+/* slider样式 */
+.el-slider{
+    flex: 1;
+    min-width: 80%;
+}
+.el-slider__runway{
+    height: 4px;
+}
+.el-slider__bar{
+    height: 4px;
+}
+.el-slider__button{
+    width: 10px;
+    height: 10px;
+}
+.el-slider__runway.show-input{
+    width: calc(100% - 110px);
+}
+.el-input-number__decrease, .el-input-number__increase{
+    color: #dddee2;
+}
+/* switch样式 */
+.el-switch__core{
+    border: none;
+}
+.el-switch__core:after{
+    background-color: #BBBBBB;
+    width: 18px;
+    height: 18px;
+}
+/* input样式 */
+.el-input{
+    font-size: 12px;
+    flex: 2;
+}
+.el-input__inner{
+    height: 24px;
+    background-color: rgb(96, 96, 96);
+    padding: 4px 5px;
+    color: rgb(252, 252, 252);
+    border: 2px solid rgb(110, 110, 110);
+    margin-left: 4px;
+    border-radius: 2px;
+}
+.el-input__icon{
+    line-height: 24px;
+}
+/* checkbox样式 */
+.el-checkbox{
+    font-size: 12px;
+}
+.el-checkbox .el-checkbox__label{
+    font-size: 12px;
+    font-weight: 400;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+    color: #dddee2;
+}
+/* button样式 */
+.el-button{
+    width: 100%;
+}

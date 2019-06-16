@@ -1,5 +1,5 @@
 <template>
-    <span>{{ title }}</span>
+    <span class="el-form-title">{{ title }}</span>
 </template>
 
 <script>

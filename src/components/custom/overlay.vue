@@ -1,8 +1,9 @@
 <template>
-    <el-row>
+    <div class="overlay-wrap">
         <CSwitch 
             :value="c_value"
-            @onChange="onSwitchChange"
+            @change="onSwitchChange"
+            :title="title"
         ></CSwitch>
         <ColorPicker
             v-show="c_value"
@@ -18,7 +19,7 @@
             :title="alphaColor"
             @change="onAplhaChange"
         ></Slider>
-    </el-row>
+    </div>
 </template>
 
 <script>
@@ -44,9 +45,6 @@ export default {
             type: Number,
             default: 0.1
         },
-        title:{
-            type: String
-        },
     },
     data(){
         return {
@@ -57,18 +55,17 @@ export default {
         }
     },
     methods:{
-        onAplhaChange(){
-
+        onAplhaChange(val){
+            this.$emit('change', {
+                opacity: val
+            },{});
         },
-        onColorChange(){
-
+        onColorChange(val){
+            this.$emit('change', {
+                color: val
+            },{});
         },
-        onSwitchChange(){
-
-        }
-    },
-    watch:{
-        value: function(val, oldVal){
+        onSwitchChange(val,oldVal){
             this.$emit('change', val, oldVal);
         }
     },
