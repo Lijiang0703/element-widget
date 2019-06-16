@@ -1,20 +1,24 @@
 <template>
-    <el-row>
-        <Label
-            :title="title"
-        ></Label>
-        <el-switch
-            :width="width"
-            :active-color="activeColor"
-            :inactive-color="inActiveColor"
-            v-model="c_value"
-        ></el-switch>
-    </el-row>
+    <div>
+        <el-row>
+            <Label
+                :title="title"
+            ></Label>
+            <el-switch
+                :width="width"
+                :active-color="activeColor"
+                :inactive-color="inActiveColor"
+                v-model="c_value"
+            ></el-switch>
+        </el-row>
+        <slot name="CSwitch"></slot>
+    </div>
 </template>
 
 <script>
 import Label from './label';
 export default {
+    name:'CSwitch',
     props:{
         value:{
             type:  [Boolean,Number],

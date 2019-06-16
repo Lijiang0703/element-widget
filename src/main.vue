@@ -1,16 +1,28 @@
 <template>
     <div>
-        <div v-for="(item, index) in elementJson" 
+        <div v-for="(item, index) in data" 
             v-bind:is="item.name" 
             v-bind="item.data"
-            @change="onChange(...arguments,index)"
+            @change="onChange(...arguments,index,isChildren)"
             @uploadImage="onUploadImage"
             @getPages="onGetPage"
             @getContentType="onGetContentType"
             @getCategory="onGetCategory"
             @getSections="onGetSection"
             :key="index"
-        ></div>
+        >
+        <template v-if="item.execs && item.children" >
+            <div v-for="(exec,key) in item.execs"
+                :key="key"
+                :slot="item.name"
+            >
+                <cmain v-if="item.value === key"
+                    :elementJson="item.children[key]"
+                    :isChildren="true"
+                ></cmain>
+            </div>
+        </template>
+        </div>
     </div>
 </template>
 
@@ -27,24 +39,34 @@ import Select from "./components/base/select";
 import Slider from "./components/base/slider";
 
 export default {
+    name: 'cmain',
     props:{
         elementJson:{
             type: Array,
             default: ()=>{
                 return [];
             }
+        },
+        isChildren:{
+            type: Boolean,
+            default: false
         }
     },
     data(){
         return {
+            data: this.elementJson
         }
     },
     mounted(){
         console.log(this.elementJson)
     },
     methods:{
-        onChange(val, oldVal, index){
-            this.$emit('change',val,oldVal,index);
+        onChange(val, oldVal, index, isChildren){
+            const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false
+            if(!isObject && !isChildren) {
+                this.data[index].value = val;
+            }
+            this.$emit('change',val,oldVal,index,isChildren);
         },
         onUploadImage(callback){
             this.$emit('uploadImage',callback);

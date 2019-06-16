@@ -11,15 +11,25 @@ const jsonConvert = (originJson)=>{
         if(constant){
             const name = constant[1];
             const attrs = constant.slice(2,3)[0] || {};
+            let children = {};
 
-            newJson.push({
+            if(json.children){
+                for(let key in json.children){
+                    children[key] = jsonConvert(json.children[key]);
+                }
+            }
+            let result = {
                 name, //组件的name
                 data:{ //组件内部的数据
                     ...attrs,
                     value: json.value
                 },
                 ...json
-            })
+            }
+            if(Object.keys(children).length) {
+                result.children = children;
+            }
+            newJson.push(result)
         }
         return newJson;
     },[])
@@ -33,7 +43,7 @@ const CONSTANT_CONTAIN_TYPE_NAMES = [
     ["link","Link"],
     ["textarea","Input",{text: 'textarea', autoSize: {minRows:2, maxRows: 4}}],
     ["slider","Slider"],
-    ["select","select"],
+    ["select","Select"],
     ["more","Button"],
     ["colorpicker","ColorPicker"],
     ["overlay","Overlay"],

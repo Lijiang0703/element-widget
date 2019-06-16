@@ -33,13 +33,13 @@ class widgetUtil {
                         }
                     },
                     on: {
-                        change: (val,oldVal,index)=>{
+                        change: (val,oldVal,index,isChildren)=>{
                             const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
                             const result = this.elementJson.reduce((json,item,i)=>{
                                 json[i] = {
                                     ...this.elementJson[i]
                                 }
-                                if(index === i){
+                                if(index === i && !isChildren){
                                     if(!isObject){
                                         json[i] = {
                                             ...json[i],
