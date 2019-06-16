@@ -2,7 +2,7 @@
  * 用来处理入口和出口数据和事件
  * 
  */
-// import Vue from "../app";
+import Vue from "../app";
 import Main from "../main";
 import jsonConvert from "./jsonConvert";
 
