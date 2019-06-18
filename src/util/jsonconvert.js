@@ -50,6 +50,7 @@ const CONSTANT_CONTAIN_TYPE_NAMES = [
     ["image","CImage"]
 ]
 const CONSTANT_EQUAL_TYPE_NAMES = [
+    ["icon","Icon"],
     ["switch","CSwitch"],
     ["split","Divider"]
 ]

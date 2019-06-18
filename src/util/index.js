@@ -62,6 +62,9 @@ class widgetUtil {
                         uploadImage: (callback)=>{
                             this.$emit('uploadImage',callback);
                         },
+                        uploadIcon: (callback)=>{
+                            this.$emit('uploadIcon',callback);
+                        },
                         getPages: (callback)=>{
                             this.$emit('getPages',callback);
                         },

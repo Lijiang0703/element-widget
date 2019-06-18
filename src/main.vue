@@ -5,6 +5,7 @@
             v-bind="item.data"
             @change="onChange(...arguments,index,isChildren)"
             @uploadImage="onUploadImage"
+            @uploadIcon="onUploadIcon"
             @getPages="onGetPage"
             @getContentType="onGetContentType"
             @getCategory="onGetCategory"
@@ -32,6 +33,7 @@ import CImage from "./components/custom/cimage";
 import Colorpicker from "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
+import Icon from "./components/custom/icon";
 import Input from "./components/base/input";
 import Link from "./components/custom/link";
 import Overlay from "./components/custom/overlay";
@@ -71,6 +73,9 @@ export default {
         onUploadImage(callback){
             this.$emit('uploadImage',callback);
         },
+        onUploadIcon(callback){
+            this.$emit('uploadIcon',callback);
+        },
         onGetPage(callback){
             this.$emit('getPages',callback);
         },
@@ -90,6 +95,7 @@ export default {
         Colorpicker,
         CSwitch,
         Divider,
+        Icon,
         Input,
         Link,
         Overlay,
