@@ -4,6 +4,7 @@
 const jsonConvert = (originJson)=>{
     return originJson.reduce((newJson, json)=>{
         const type = json.type;
+        if(!type) return newJson;
         const constantEqual = CONSTANT_EQUAL_TYPE_NAMES.find((constant)=>{return constant[0] === type});
         const constantContain = CONSTANT_CONTAIN_TYPE_NAMES.find((constant)=>{return type.indexOf(constant[0]) !== -1});
         const constant  = constantEqual || constantContain;
@@ -22,6 +23,8 @@ const jsonConvert = (originJson)=>{
                 name, //组件的name
                 data:{ //组件内部的数据
                     ...attrs,
+                    ...json,
+                    title: json.title || json.display,
                     value: json.value
                 },
                 ...json

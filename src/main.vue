@@ -64,11 +64,11 @@ export default {
     },
     methods:{
         onChange(val, oldVal, index, isChildren){
-            const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false
-            if(!isObject && !isChildren) {
+            const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
+            if(!isObject) {
                 this.data[index].value = val;
-            }
-            this.$emit('change',val,oldVal,index,isChildren);
+            } 
+            this.$emit('change',val,oldVal,index);
         },
         onUploadImage(callback){
             this.$emit('uploadImage',callback);

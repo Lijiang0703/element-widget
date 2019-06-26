@@ -39,7 +39,7 @@ class widgetUtil {
                                 json[i] = {
                                     ...this.elementJson[i]
                                 }
-                                if(index === i && !isChildren){
+                                if(index === i){
                                     if(!isObject){
                                         json[i] = {
                                             ...json[i],
