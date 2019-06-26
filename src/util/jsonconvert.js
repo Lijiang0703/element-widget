@@ -24,6 +24,7 @@ const jsonConvert = (originJson)=>{
                 data:{ //组件内部的数据
                     ...attrs,
                     ...json,
+                    options: json.values || json.options || [],
                     title: json.title || json.display,
                     value: json.value
                 },

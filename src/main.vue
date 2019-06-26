@@ -20,6 +20,7 @@
                 <cmain v-if="item.value === key"
                     :elementJson="item.children[key]"
                     :isChildren="true"
+                    @change="onChange(...arguments,index,isChildren)"
                 ></cmain>
             </div>
         </template>

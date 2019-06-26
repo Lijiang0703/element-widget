@@ -31,6 +31,31 @@ const app = new elementWidget({
 const { vm } = app;
 ```
 ### Component type
+
+目前相对完善的组件类型：
+
+* (widgetName, type)
+* button
+* checkbox
+* colorpicker
+* divider - split
+* input - input/textarea
+* select
+* slider - slider/spinbox
+* switch
+* link
+* icon
+* overlay
+* image
+
+组件需要的参数详见 src/components/
+
+其中type类型为 icon、switch、split 的组件，type定义要求全等，其他都是包含。
+
+switch 和select组件的高级语法嵌套目前已能成功展示，数据通信逻辑还有待梳理。
+
+为了兼容，在 util/jsonconver.js中做了简单的数据处理。
+
 ```
 ...
 
