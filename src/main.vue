@@ -31,7 +31,7 @@
 <script>
 import Button from "./components/base/button";
 import CImage from "./components/custom/cimage";
-import ColorPickerfrom "./components/base/colorpicker";
+import ColorPicker from "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
 import Icon from "./components/custom/icon";
