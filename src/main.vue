@@ -31,7 +31,7 @@
 <script>
 import Button from "./components/base/button";
 import CImage from "./components/custom/cimage";
-import Colorpicker from "./components/base/colorpicker";
+import ColorPickerfrom "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
 import Icon from "./components/custom/icon";
@@ -93,7 +93,7 @@ export default {
     components: {
         Button,
         CImage,
-        Colorpicker,
+        ColorPicker,
         CSwitch,
         Divider,
         Icon,
