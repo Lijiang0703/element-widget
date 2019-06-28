@@ -54,7 +54,7 @@ const { vm } = app;
 
 switch 和select组件的高级语法嵌套目前已能成功展示，数据通信逻辑还有待梳理。
 
-为了兼容，在 util/jsonconver.js中做了简单的数据处理。
+为了兼容，在 src/util/jsonconver.js中做了简单的数据处理。
 
 ```
 ...

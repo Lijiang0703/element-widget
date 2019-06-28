@@ -32,7 +32,7 @@
 import Button from "./components/base/button";
 import Chexkbox from "./components/base/checkbox";
 import CImage from "./components/custom/cimage";
-import Colorpicker from "./components/base/colorpicker";
+import ColorPicker from "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
 import Icon from "./components/custom/icon";
@@ -95,7 +95,7 @@ export default {
         Button,
         Chexkbox,
         CImage,
-        Colorpicker,
+        ColorPicker,
         CSwitch,
         Divider,
         Icon,
