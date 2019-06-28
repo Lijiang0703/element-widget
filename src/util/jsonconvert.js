@@ -13,7 +13,6 @@ const jsonConvert = (originJson)=>{
             const name = constant[1];
             const attrs = constant.slice(2,3)[0] || {};
             let children = {};
-
             if(json.children){
                 for(let key in json.children){
                     children[key] = jsonConvert(json.children[key]);
@@ -42,10 +41,11 @@ export default jsonConvert;
 //常量定义, [type,name,attr]
 const CONSTANT_CONTAIN_TYPE_NAMES = [
     ["button","Button"],
+    ["checkbox","Chexkbox"],
     ["spinbox","Slider",{showInput: true}],
     ["input","Input"],
     ["link","Link"],
-    ["textarea","Input",{text: 'textarea', autoSize: {minRows:2, maxRows: 4}}],
+    ["textarea","Input",{type: 'textarea'}],
     ["slider","Slider"],
     ["select","Select"],
     ["more","Button"],

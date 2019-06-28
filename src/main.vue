@@ -30,6 +30,7 @@
 
 <script>
 import Button from "./components/base/button";
+import Chexkbox from "./components/base/checkbox";
 import CImage from "./components/custom/cimage";
 import Colorpicker from "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
@@ -92,6 +93,7 @@ export default {
     },
     components: {
         Button,
+        Chexkbox,
         CImage,
         Colorpicker,
         CSwitch,

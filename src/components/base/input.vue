@@ -5,6 +5,9 @@
         ></Label>
         <el-input
             v-model.lazy="c_value"
+            :type="type"
+            :rows="rows"
+            :autoSize="autoSize"
         ></el-input>
     </el-row>
 </template>
@@ -23,6 +26,16 @@ export default {
         },
         title:{
             type: String
+        },
+        rows:{
+            type: Number,
+            default: 2
+        },
+        autoSize:{
+            type: Object,
+            default: function(){
+                return {minRows:2, maxRows: 4}
+            }
         }
     },
     data(){

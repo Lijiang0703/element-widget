@@ -15,7 +15,8 @@ export default {
             default: false
         },
         title:{
-            type: String
+            type: String,
+            default: '单选框'
         }
     },
     data(){
