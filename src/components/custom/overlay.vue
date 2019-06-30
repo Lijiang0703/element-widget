@@ -30,7 +30,7 @@ import Slider from '../base/slider';
 export default {
     props:{
         value:{
-            type:  Boolean,
+            type: [Boolean,Number],
             default: false,
             required: true
         },
@@ -57,7 +57,7 @@ export default {
     },
     data(){
         return {
-            c_value: this.value,
+            c_value: this.value ? true : false,
             title: '显示蒙板',
             colorTitle: '背景色',
             alphaColor: '透明度',

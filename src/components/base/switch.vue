@@ -42,7 +42,7 @@ export default {
     },
     data(){
         return {
-            c_value: this.value
+            c_value: this.value ? true : false
         }
     },
     watch:{

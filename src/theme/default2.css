@@ -1,0 +1,139 @@
+*{
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.el-form-title{
+    color: rgb(71, 71, 71);
+    display: inline-block;
+    max-width: 100%;
+    flex: 1;
+}
+.el-row{
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+.icon-title{
+    color: #FF9B26;
+    margin-right: 6px;
+    margin-left: 2px;
+}
+.row-title{
+    margin: 8px 0;
+}
+/* colorpicker样式 */
+.el-color-picker__trigger{
+    border: none;
+}
+.el-color-picker__color{
+    border: none;
+}
+.el-color-picker__color-inner{
+    border-radius: 50%;
+}
+.el-icon-arrow-down{
+    display: none;
+}
+/* slider样式 */
+.el-slider{
+    flex: 1;
+    min-width: 80%;
+}
+.el-slider__button-wrapper{
+    width: 30px;
+    height: 30px;
+}
+.el-slider__runway{
+    height: 1px;
+}
+.el-slider__bar{
+    height: 1px;
+    background-color: #E4E7ED;
+}
+.el-slider__button{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(102,102,102);
+    border: none;
+}
+.el-slider__runway.show-input{
+    width: calc(100% - 110px);
+}
+.el-input-number__decrease, .el-input-number__increase{
+    color: #dddee2;
+}
+.c-slider input{
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px inset;
+    color: rgb(25,25,25);
+    padding: 0px 25px 0px 7px;
+    background-color: #fff;
+    height: 25px;
+    line-height: 25px;
+    margin: 0px;
+}
+.c-slider .el-input-number__decrease{
+    background: transparent;
+    border-color: rgb(230, 230, 230);
+}
+.c-slider .el-input-number__increase{
+    background: transparent;
+    border-color: rgb(230, 230, 230);
+}
+.c-slider .el-input-number__decrease i{
+    color: rgb(156,156,156)
+}
+.c-slider .el-input-number__increase i{
+    color: rgb(156,156,156)
+}
+/* switch样式 */
+.el-switch__core{
+    border: none;
+}
+.el-switch__core:after{
+    background-color: #BBBBBB;
+    width: 18px;
+    height: 18px;
+}
+/* input样式 */
+.el-input{
+    font-size: 12px;
+    flex: 2;
+}
+.el-input__inner{
+    height: 24px;
+    background-color: #fff;
+    padding: 4px 5px;
+    color: #555;
+    border: 2px solid rgb(230, 230, 230);
+    margin-left: 4px;
+    border-radius: 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px inset;
+    -webkit-box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px inset;
+}
+.el-input__icon{
+    line-height: 24px;
+}
+.el-textarea{
+    width: 70%;
+}
+.el-textarea textarea{
+    background-color: #fff;
+    border: 2px solid rgb(230, 230, 230);
+}
+/* checkbox样式 */
+.el-checkbox{
+    font-size: 12px;
+}
+.el-checkbox .el-checkbox__label{
+    font-size: 12px;
+    font-weight: 400;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+    color: rgb(71,71,71);
+}
+/* button样式 */
+.el-button{
+    width: 100%;
+}
