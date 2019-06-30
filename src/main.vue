@@ -24,6 +24,14 @@
                 ></cmain>
             </div>
         </template>
+        <template v-if="item.name === 'Collapse' && item.children">
+            <cmain
+                :slot="item.name"
+                :isChildren="true"
+                :elementJson="item.children"
+                @change="onChange(arguments[0],arguments[1],index,true,arguments[2])"
+            ></cmain>
+        </template>
         </div>
     </div>
 </template>
@@ -32,6 +40,7 @@
 import Button from "./components/base/button";
 import Chexkbox from "./components/base/checkbox";
 import CImage from "./components/custom/cimage";
+import Collapse from "./components/base/collapse";
 import ColorPicker from "./components/base/colorpicker";
 import CSwitch from "./components/base/switch";
 import Divider from "./components/base/divider";
@@ -65,11 +74,24 @@ export default {
         console.log(this.elementJson)
     },
     methods:{
-        onChange(val, oldVal, index, isChildren){
+        onChange(val, oldVal, index, isChildren, subIndex){
             const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
+            if(isChildren){ //collapse
+                if(subIndex !== undefined){
+                    if(!isObject) {
+                        try{
+                            this.data[index].children[subIndex].value = val;
+                        }catch(e){
+                            console.log(e);
+                        }
+                        this.$emit('change',val,oldVal,index,isChildren,subIndex);
+                        return;
+                    }
+                }
+            }
             if(!isObject) {
                 this.data[index].value = val;
-            } 
+            }
             this.$emit('change',val,oldVal,index);
         },
         onUploadImage(callback){
@@ -95,6 +117,7 @@ export default {
         Button,
         Chexkbox,
         CImage,
+        Collapse,
         ColorPicker,
         CSwitch,
         Divider,

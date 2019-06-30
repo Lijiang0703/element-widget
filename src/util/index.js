@@ -33,23 +33,41 @@ class widgetUtil {
                         }
                     },
                     on: {
-                        change: (val,oldVal,index,isChildren)=>{
+                        change: (val,oldVal,index,isChildren,subIndex)=>{
                             const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
                             const result = this.elementJson.reduce((json,item,i)=>{
                                 json[i] = {
                                     ...this.elementJson[i]
                                 }
                                 if(index === i){
-                                    if(!isObject){
-                                        json[i] = {
-                                            ...json[i],
-                                            value: val, 
+                                    if(isChildren){ //collapse
+                                        if(subIndex){
+                                            let children = json[i].children;
+                                            if(!isObject){
+                                                children[subIndex] = {
+                                                    ...children[subIndex],
+                                                    value: val, 
+                                                }
+                                            }else {
+                                                children[subIndex] = {
+                                                    ...children[subIndex],
+                                                    ...val
+                                                };
+                                            }
+                                            json[i].children = children;
                                         }
                                     }else {
-                                        json[i] = {
-                                            ...json[i],
-                                            ...val
-                                        };
+                                        if(!isObject){
+                                            json[i] = {
+                                                ...json[i],
+                                                value: val, 
+                                            }
+                                        }else {
+                                            json[i] = {
+                                                ...json[i],
+                                                ...val
+                                            };
+                                        }
                                     }
                                 }
                                 
@@ -57,6 +75,7 @@ class widgetUtil {
                             },[]);
                             this.elementJson = result;
                             this.$emit('change',result);
+                            console.log(result)
                             self.onChange();
                         },
                         uploadImage: (callback)=>{

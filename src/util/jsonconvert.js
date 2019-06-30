@@ -12,12 +12,6 @@ const jsonConvert = (originJson)=>{
         if(constant){
             const name = constant[1];
             const attrs = constant.slice(2,3)[0] || {};
-            let children = {};
-            if(json.children){
-                for(let key in json.children){
-                    children[key] = jsonConvert(json.children[key]);
-                }
-            }
             let result = {
                 name, //组件的name
                 data:{ //组件内部的数据
@@ -29,8 +23,20 @@ const jsonConvert = (originJson)=>{
                 },
                 ...json
             }
-            if(Object.keys(children).length) {
-                result.children = children;
+            if(json.children){
+                const children = json.children;
+                const isArray = Object.prototype.toString.apply(children) === `[object Array]` || false;
+                if(isArray){
+                    result.children = jsonConvert(children) || [];
+                }else{       
+                    let _children = {};
+                    for(let key in children){
+                        _children[key] = jsonConvert(children[key]);
+                    }
+                    if(Object.keys(children).length) {
+                        result.children = _children;
+                    }
+                }
             }
             newJson.push(result)
         }
@@ -54,6 +60,7 @@ const CONSTANT_CONTAIN_TYPE_NAMES = [
     ["image","CImage"]
 ]
 const CONSTANT_EQUAL_TYPE_NAMES = [
+    ["collapse","Collapse"],
     ["icon","Icon"],
     ["switch","CSwitch"],
     ["split","Divider"]

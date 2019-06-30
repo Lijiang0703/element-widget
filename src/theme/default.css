@@ -54,6 +54,7 @@
 }
 .el-input-number__decrease, .el-input-number__increase{
     color: #dddee2;
+    background: transparent;
 }
 /* switch样式 */
 .el-switch__core{
@@ -102,4 +103,22 @@
 /* button样式 */
 .el-button{
     width: 100%;
+}
+/* collapse的样式 */
+.collapse-wrap{
+    background-color: #3d3d3d;
+}
+.collapse-wrap .el-collapse-item__header{
+    background: #272727;
+    border-top: 1px solid #5D5E62;
+    /* border-bottom: 1px solid #5D5E62; */
+    color: #dddee2;
+    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+.el-collapse-item__wrap{
+    background-color: transparent;
 }
