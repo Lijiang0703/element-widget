@@ -33,47 +33,51 @@ class widgetUtil {
                         }
                     },
                     on: {
-                        change: (val,oldVal,index,isChildren,subIndex)=>{
+                        change: (val,oldVal,index,isChildren,subIndex,key)=>{
                             const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
-                            const result = this.elementJson.reduce((json,item,i)=>{
-                                json[i] = {
-                                    ...this.elementJson[i]
-                                }
+                            let result = {};
+                            for(let i=0;i<this.elementJson.length;i++){
+                                const json = this.elementJson[i];
                                 if(index === i){
                                     if(isChildren){ //collapse
-                                        if(subIndex){
-                                            let children = json[i].children;
+                                        if(subIndex !== undefined){
+                                            let children = json.children;
+                                            let data = {};
+                                            if(key){
+                                                data = children[key][subIndex] || {};
+                                            }else{
+                                                data = children[subIndex] || []
+                                            }
                                             if(!isObject){
-                                                children[subIndex] = {
-                                                    ...children[subIndex],
+                                                data = {
+                                                    ...data,
                                                     value: val, 
                                                 }
                                             }else {
-                                                children[subIndex] = {
-                                                    ...children[subIndex],
+                                                data = {
+                                                    ...data,
                                                     ...val
                                                 };
                                             }
-                                            json[i].children = children;
+                                            result = data;
                                         }
                                     }else {
                                         if(!isObject){
-                                            json[i] = {
-                                                ...json[i],
+                                            result = {
+                                                ...json,
                                                 value: val, 
                                             }
                                         }else {
-                                            json[i] = {
-                                                ...json[i],
+                                            result = {
+                                                ...json,
                                                 ...val
                                             };
                                         }
                                     }
+                                    break;
                                 }
-                                
-                                return json;
-                            },[]);
-                            this.elementJson = result;
+                            };
+                            // this.elementJson = result;
                             this.$emit('change',result);
                             console.log(result)
                             self.onChange();

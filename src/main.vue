@@ -20,7 +20,7 @@
                 <cmain v-if="item.value === key"
                     :elementJson="item.children[key]"
                     :isChildren="true"
-                    @change="onChange(...arguments,index,isChildren)"
+                    @change="onChange(arguments[0],arguments[1],index,true,arguments[2],key)"
                 ></cmain>
             </div>
         </template>
@@ -74,10 +74,21 @@ export default {
         console.log(this.elementJson)
     },
     methods:{
-        onChange(val, oldVal, index, isChildren, subIndex){
+        onChange(val, oldVal, index, isChildren, subIndex, key){ //参数有点多
             const isObject = Object.prototype.toString.apply(val) === `[object Object]` || false;
             if(isChildren){ //collapse
                 if(subIndex !== undefined){
+                    if(key !== undefined){ //execs
+                        if(!isObject) {
+                            try{
+                                this.data[index].children[key][subIndex].value = val;
+                            }catch(e){
+                                console.log(e);
+                            }
+                            this.$emit('change',val,oldVal,index,isChildren,subIndex,key);
+                            return;
+                        }
+                    }
                     if(!isObject) {
                         try{
                             this.data[index].children[subIndex].value = val;
