@@ -65,9 +65,9 @@ export default {
             default: false
         }
     },
-    data(){
-        return {
-            data: this.elementJson
+    computed:{
+        data: function(){
+            return this.elementJson;
         }
     },
     mounted(){
